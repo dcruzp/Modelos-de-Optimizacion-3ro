@@ -15,7 +15,7 @@ r = [2, 1.5, 1.0]
 def target(x, *args) -> float:
     result = 0
     for elem in range(0, 3):
-        result += x[elem] * (args[0][elem]) * (args[1][elem]) * (args[3][elem]) - x[elem] * (args[1][elem]) - 5 * (
+        result += x[elem] * (args[0][elem]) * (args[1][elem]) * (args[3][elem]) - x[elem] * (args[1][elem]) - 5 * x[elem] * (
         args[0][elem]) * (args[2][elem])
 
     constr_1_value = 0
