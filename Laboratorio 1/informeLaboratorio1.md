@@ -10,7 +10,7 @@ Utilizando librerías implementadas en el lenguaje de programación de su prefer
 
 ##### Varibale de descisión:
 
-- $x_i$ : Cantidad de ha dedicadas al cultivo $i \in \{Tomates, Lechugas, Acelgas\}_3$.
+- $x_i$ : Cantidad de tonledas de semilla del cultivo i compradas $i \in \{Tomates, Lechugas, Acelgas\}_3$.
 
 ##### P\'arametros:
 
@@ -20,10 +20,10 @@ Utilizando librerías implementadas en el lenguaje de programación de su prefer
 
 - $d_i$ : Cantidad de hombres-d\'ias necesarios para una $ha$ del cultivo $i$.
 
-- $e_i$ : Cantidad de $ton$ del rendimiento promedio del una $ha$ del cutlivo $i$.
+- $e_i$ : Cantidad de $ton$ del rendimiento promedio de una $ha$ del cutlivo $i$.
 
 ##### Modelo:
-$$ max \sum_{i = 1}^3 (c_i e_i x_i - c_i \frac {x_i}{b_i} - 5 d_i x_i )$$
+$$ max \sum_{i = 1}^3 x_i b_i c_i e_i - \sum_{i = 1}^3 x_i c_i - \sum_{i = 1}^3 5 x_i b_i d_i $$
 
 $$ \sum_{i=1}^3 x_i \leq 1200$$
 
