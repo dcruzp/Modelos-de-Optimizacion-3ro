@@ -97,7 +97,7 @@ $$ x_{ij} \geq 0\ \forall i = 1,2 \land j = 1, 2, ..., 5$$
 
 ## Ejercicio 2. Función de Rosenbrock (caso irrestricto)
 
-Sea la funcion en $n$ variables:
+Sea la función en $n$ variables:
 
 $$min \sum_{i=1} 100 \left(x_{i-1}- x_{i}^{2} \right)^{2} + \left(1-x_{i}\right)^{2}$$
 
