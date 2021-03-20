@@ -2,15 +2,259 @@
 
 \usepackage[spanish]{babel}
 
-
+\usepackage{amsmath}
                          
 \begin{document}
 
-\title{\bf Mi Asombroso Libro}          
+\title{\bf Clase Practica 2 de Modelos de Optimizacion }          
 \author{Tu nombre aqui}                        
 \date{\today} 
 
 \maketitle 
 
+
+\section{Problema de las terminales }
+
+\subsection{Variable de decision:}
+
+$x_i:$ Cantidad de omnibus a sustituir en la  linea $i \in \{L1,L2,L3\}_3$ 
+
+$
+\delta_{i} = 
+ \left\{ \begin{array}{cl}
+ 1 & \mbox{Se escoge el conjunto $C_i$}\\
+ 0 & \mbox{Si no}
+ \end{array}\right\}
+$
+
+
+\subsection{Parametros:}
+
+$b_i$ Cantidad de obnibus asignados a la linea $i$. $ b = \left(14,17,16\right) $  
+
+$c_i$ Cantidad de personas transportados por la linea $i$. $c =\left(12000,21000, 15000\right)$ 
+
+\section{Problema de la Fabrica de  Queso}
+
+\section{Problema del Aserradero} 
+
+
+
+\section{Problemas de Los Cursos} 
+
+\subsection{Variables de decisi\'on}
+
+\begin{equation*}
+\delta_{i} = 
+ \left\{ \begin{array}{cl}
+ 1 & \mbox{Se escoge el conjunto $C_i$}\\
+ 0 & \mbox{Si no}
+ \end{array} \right\}
+\end{equation*}
+
+
+
+$$i \in \{Lunes - Viernes\}_5 \hspace*{2cm } j \in \{1-5\}_5 $$
+
+
+\subsection{Parametros}
+
+\begin{itemize}
+	\item $a_ij : $ Cantidad de estudiantes que no pueden asistir el d\'ia $i$ al curso $j$ 
+\end{itemize}
+
+
+\begin{equation*}
+	a = 
+	\begin{pmatrix}
+		3 & 2 & 3 & 4 & 9 \\
+		0 & 10 & 5 & 8 & 10 \\
+		1 & 3 & 3 & 10 & 2 \\
+		6 & 1 & 1 & 0 & 5 \\
+		0 & 8 & 6 & 2 & 3 \\
+	\end{pmatrix}
+\end{equation*}
+
+
+
+\subsection{Modelo}
+$$min \sum_{i=1}^{5} \sum_{j=1}^{5} a_{ij} \lambda_{ij}$$
+$$\sum_{i=1}^{5} \lambda{ij}  = 1 \forall j$$
+
+$$\sum_{j=1}^{5} \lambda{ij} =  1 \forall i$$
+
+$$ \lambda_i \in \{0,1\}$$
+
+
+\section{Problema de Cubrimiento minimo}
+\subsection{Variables de decisi\'on}
+
+\begin{equation*}
+\delta_{i} = 
+ \left\{ \begin{array}{cl}
+ 1 & \mbox{Se escoge el conjunto $C_i$}\\
+ 0 & \mbox{Si no}
+ \end{array} \right\}
+\end{equation*}
+
+\subsection {Parametros}
+
+
+
+\begin{itemize}
+	\item $C_i$ : Subconjuntos de elementos de $X$. $C_i \subset X = \{1,2,\dots , n \}$. 
+	\item $c_i$ : Costo de escoger el conjunto $C_i$
+	\item $\delta_{i} = 
+	\left\{ \begin{array}{cl}
+	1 & \mbox{El elemento $j$ esta en $C_i$}\\
+	0 & \mbox{Si no}
+	\end{array} \right\}$
+\end{itemize}
+
+\subsection{Modelo}
+
+$$ min \sum_{i=1}^{n} c_i\delta_i$$
+
+$$ \sum_{i=1}^{n} r_{ij} \delta_{i} \geq 1 \hspace{0.4cm} \forall j $$
+
+$$\delta_i \in \{0,1\}$$
+\section{6 Empaquetamineto maximo }
+\textbf{Variables de decisi\'on}
+
+
+
+\textbf{Parametros}
+\textbf{Modelo}
+
+
+\section{El problema del viejante}
+
+\subsection{Primera alternativa:}
+
+\subsubsection{Variables de decisi\'on}
+
+\begin{equation*}
+\delta_{ij} = 
+\left\{ \begin{array}{cl}
+1 & \mbox{El viajante va de la ciudad $i$ a la $j$}\\
+0 & \mbox{Si no}
+\end{array} \right\}
+\end{equation*}
+
+
+
+\subsubsection{Parametros}
+
+\begin{itemize}
+	\item $t_{ij}$ : Tiempo requerido para ir de la cuidad $i$ a la $j$. 
+\end{itemize}
+
+\subsubsection{Modelo}
+
+$$min \sum_{i=1}^{n} \sum_{j=1}^{n} t_{ij} \delta_{ij}$$
+
+$$\sum_{j=1}^{n} \delta{ij} =  1 \forall i  \hspace{1cm}  \sum_{i=1}^{n} \lambda{ij} =  1 \forall j$$
+
+
+$$\sum_{j=1}^{n} \lambda{0i} =  1 \forall i   \hspace{1cm}  \sum_{j=1}^{n} \lambda{i0} =  1 \forall i$$
+
+$$\sum_{i,j \in V}^{} \delta_{ij} \geq 1  \hspace*{0.5cm} \forall i,j \hspace*{0.2cm} \in E$$
+
+
+\subsection{Segunda alternativa} 
+
+\subsubsection{Variable de decision} 
+
+\begin{equation*}
+\delta_{ijk} = 
+\left\{ \begin{array}{cl}
+1 & \mbox{El viajante va de la ciudad $i$ a la $j$ en el instante $k$}\\
+0 & \mbox{Si no}
+\end{array} \right\}
+\end{equation*}
+
+\subsubsection{Parametros}
+
+$t_{ij} $ : Tiemp orequerido para ir de la ciudad $i$ a la $j$. 
+
+\subsubsection{Modelo}
+
+
+
+$$min \sum_{i,j,k=1}^{n} t_{ik} \delta_{ij}$$
+
+$$\sum_{k}^{} \sum_{j}^{}  \delta{ijk} =  1 \hspace*{0.5cm} \forall i  $$
+
+
+$$\sum_{i=1}^{n} \delta{ijk} =  \sum_{i=1}^{n} \delta{ij \left(k+1\right)}  \hspace{0.5cm}\forall i j$$
+
+$$\sum_{i=1}^{n} \delta_{ijn} =  \sum_{i=1}^{n} \delta_{ij1}$$
+
+\section{Problema de Colorear un mapa} 
+
+\subsection{Variables de decision} 
+\begin{equation*}
+\delta_{ij} = 
+ \left\{ \begin{array}{cl}
+ 1 & \mbox{El vertice $i$ es coloreado con el color $i$}\\
+ 0 & \mbox{Si no}
+ \end{array} \right\}
+\end{equation*}
+
+\begin{equation*}
+\delta_{j} = 
+\left\{ \begin{array}{cl}
+1 & \mbox{El color $j$ no es usado por ningun vertice}\\
+0 & \mbox{Si no}
+\end{array} \right\}
+\end{equation*}
+
+\subsection{Modelo} 
+
+$$
+	min \sum_{j=1}^{n} x_j
+$$
+
+$$
+\sum_{j=1}^{n} \delta_{ij}  = 1 \hspace{0.5cm} \forall i \in V 
+$$
+
+$$
+\delta_{ij} + \delta_{kj} \leq x_j  \hspace{0.3cm} \mbox{ si } \hspace{0.3cm} i,k \in E \hspace{0.5cm} \forall j
+$$
+
+$$
+\delta_{i,j} , x_j \in \{0,1\}, \hspace{0.3cm} \forall i \in V, \hspace{0.3cm} \forall j  
+$$
+
+
+\section{Sistema cuadratico con variables binarias} 
+
+Sea el modelo: 
+
+$$
+min \hspace{0.3cm} x_{0}^{2} + x_0x_1 + x_{1}^{2}
+$$
+
+
+Vamos a definir las variables: 
+
+$$
+x_{0}^{'} = x_{0}^{2} \hspace{0.2cm} , \hspace{0.2cm} x_{1}^{'} = x_{1}^{2} \hspace{0.2cm} y \hspace{0.2cm} x_{2}^{'} = x_{0} x_{1}
+$$
+
+Las variables de decision:
+
+\begin{itemize}
+	\item $x_i$ 
+	\item $\delta$
+\end{itemize}
+
+
+Modelo:
+
+$$min \sum_{i=1}^{n} x_{i}^{'}$$
+
+$$x_{2}^{'} \leq \delta  \hspace{0.2cm} , \hspace{0.2cm} x_{0}^{'} + x_{1}^{'} \geq \delta$$
 
 \end{document}
