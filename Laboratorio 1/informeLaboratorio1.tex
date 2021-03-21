@@ -15,11 +15,11 @@
 Utilizando librerías implementadas en el lenguaje de programación de su preferencia para la resolución de problemas matemáticos y científicos,por ejemplo(python-scipy,matlab,Julia)resuelva los modelos de optimización descritos a continuación:
 
 
-\section{Ejercicio 1 Problemas de CP} 
+\section*{Ejercicio 1 Problemas de CP} 
 
- \subsection{Respuesta ejercicio 1 de CP 1} 
+ \subsection*{Respuesta ejercicio 1 de CP 1} 
  
- \subsubsection{Variables de decision} 
+ \subsubsection*{Variables de decision:} 
  
  \begin{itemize}
  	\item $x_i$ : Cantidad de tonledas de semilla del cultivo i compradas $i \in \{Tomates, Lechugas, Acelgas\}_3$.
@@ -27,7 +27,7 @@ Utilizando librerías implementadas en el lenguaje de programación de su prefer
  
  
  
-  \subsubsection{Parametros} 
+  \subsubsection*{Parametros:} 
  
  \begin{itemize}
  	 \item $b_i$ : Cantidad de $ha$ para la que rinde una ton de semillas del cultivo $i$.
@@ -39,7 +39,7 @@ Utilizando librerías implementadas en el lenguaje de programación de su prefer
  	\item $e_i$ : Cantidad de $ton$ del rendimiento promedio de una $ha$ del cutlivo $i$.
  \end{itemize} 
    
-  \subsubsection{Modelo} 
+  \subsubsection*{Modelo:} 
 
 $$ max \sum_{i = 1}^3 x_i b_i c_i e_i - \sum_{i = 1}^3 x_i c_i - \sum_{i = 1}^3 5 x_i b_i d_i $$
 
@@ -48,5 +48,100 @@ $$ \sum_{i=1}^3 x_i \leq 1200$$
 $$ \sum_{i=1}^3 d_i x_i \leq 450$$
 
 $$ x_i \geq 0\ \forall i = 1, 2, 3$$
+
+\subsubsection*{C\'odigo}
+
+
+\subsection*{Respuesta Ejercicio 2 de CP 1}
+
+\subsubsection*{Variables de decisi\'on:}
+
+\begin{itemize}
+	\item $x_{ij}$ : Cantidad de $ton$ del art\'iculo $i\in\{A,B,C\}_3$ en la bodega $j\in\{Proa, Popa, Centro\}_3$.
+\end{itemize}
+
+\subsubsection*{Par\'ametros:}
+
+\begin{itemize}
+	\item $c_i$ : Ganancia de una $ton$ del art\'iculo $i$.
+	\item $b_j$ : Capacidadde la bodega $j$.
+	\item $d_i$ : Cantidad de $ton$dispnible del art\'iculo $i$.
+\end{itemize}
+
+\subsubsection*{Modelo:}
+
+	$$ max \sum_{i=1}^3\sum{j=1}^3 c_j x_{ij} $$
+	$$ \sum_{i=1}^3 x_{ij}\leq b_j \forall j = 1,2,3 $$
+	$$ \sum_{j=1}^3 x_{ij}\leq d_i \forall i = 1,,2,3 $$
+	$$ \frac{\sum_{i=1}^3 x_{is}}{b_s} - \frac{\sum_{i=1}^3 x_{it}}{b_t} = 0\forall s,t\in \{Proa,Popa,Centro\}_3 \wedge s\neq t $$
+	$$ x_{ij} \geq 0\forall i =1,2,3\wedge j = 1,2,3 $$
+
+\subsubsection*{C\'odigo:}
+
+
+\subsection*{Respuesta Ejercicio 3 de CP 1}
+
+\subsubsection*{Variable de decisi\'on:}
+
+\begin{itemize}
+	\item $x_{ij}$ : Cantidad de $hl$ de la mezcla $j \in \{Mezcla I,Mezcla II,Aceite,Secador,Solvente\}_3$. en el producto $i\in \{Producto I,Producto II\}_2$.
+\end{itemize}
+
+\subsubsection*{Par\'ametros:}
+ 
+\begin{itemize}
+	\item $c_j$ : Costo de la mezcla $j$.
+	\item $a_{jk}$ : Composici\'on en \% de la sustancia $k \in \{Aceite,Secador,Solvente\}_3.$ en la materia prima $j$.
+	\item $b_{jk}$ : Composici\'on requerida de la sustancia $k$ en el producto $i$.
+	\item $d_j$ : Cantidad de $hl$ disponible para la mezcla $j$.
+	\item $D_i$ : Demanda de $hl$ del producto $i$.
+\end{itemize}
+
+\subsubsection*{Modelo:}
+
+$$ min \{ \sum_{i = 1}^2 \sum_{j = 1}^5 c_j x_{ij} -  \sum_{j=1}^5 c_j d_j\}$$
+
+$$ \sum_{j=1}^5 x_{ij} a_{jk} = \sum_{j=1}^5 x_{ij} b_{jk}\ \forall i=1, 2 \land k = 1, 2, 3 $$
+
+$$ \sum_{i=1}^2 x_{ij} \leq d_j\ \forall j = 1, 2, ..., 5 $$
+
+$$ \sum_{j = 1}^5 x_{ij} = D_i\  \forall i=1, 2 $$
+
+$$ x_{ij} \geq 0\ \forall i = 1,2 \land j = 1, 2, ..., 5 $$
+
+\subsubsection*{C\'odigo:}
+
+
+
+\section*{Ejercicio 2 .Funci\'on de Rosenbrock (caso irrestricto)}
+
+\begin{flushleft}
+	Sea la funci\'on en $n$ variables:
+\end{flushleft}
+
+$$ min \sum_{i=1} 100 \left(x_{i-1}- x_{i}^{2} \right)^{2} + \left(1-x_{i}\right)^{2} $$
+
+\begin{flushleft}
+	Encontrar su valor m\'inimo para $n = 2,3,4,5$ 
+\end{flushleft}
+
+\subsubsection*{C\'odigo:}
+
+
+
+\section*{Ejercicio 3 .Funci\'on de Rosenbrock (con restricciones)}
+
+\subsubsection*{Modelo:}
+
+$$ min \hspace{0.2cm} 100(x_{i+1} - x_i^2)^2 + (1 - x_i)^2 $$
+
+$$ x_{0} + 2x_{1} \leq 1 $$
+
+$$ x_{0}^{2} + x_{1} \leq 1 $$
+
+$$ x_{0} - x_{1} \leq 4 $$
+
+\subsubsection*{C\'odigo:}
+
 
 \end{document}
